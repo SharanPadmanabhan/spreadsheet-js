@@ -1,0 +1,168 @@
+/* Scroll Bar Styling */
+.sheet-contents {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb-default-color) var(--scroll-track-color);
+}
+
+.sheet-contents::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+.sheet-contents::-webkit-scrollbar-track {
+    background-color: var(--scroll-track-color);
+}
+
+.sheet-contents::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: 3px solid var(--scroll-track-color);
+    background-color: var(--scroll-thumb-default-color);
+}
+
+.sheet-contents::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-thumb-hover-color);
+}
+
+/* Buttons and Drop Downs */
+.button {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 14px;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color 0.5s ease-in-out;
+    border: solid 1px var(--button-border-color);
+    background-color: var(--button-default-color);
+}
+
+.button-add {
+    padding: 10px;
+    margin: 0 5px 0 5px;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: fit-content;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.button:active {
+    background-color: var(--button-active-color);
+}
+
+.button-color-foreground::-webkit-color-swatch-wrapper,
+.button-color-background::-webkit-color-swatch-wrapper {
+    top: 17px;
+    left: -1px;
+    padding: 0;
+    width: 25px;
+    height: 6px;
+    margin: auto;
+    position: relative;
+    border-radius: 100px;
+}
+
+.button-color-foreground::-webkit-color-swatch,
+.button-color-background::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+}
+
+.button-color-foreground::-moz-color-swatch,
+.button-color-background::-moz-color-swatch {
+    top: 10px;
+    left: -1px;
+    padding: 0;
+    width: 25px;
+    height: 6px;
+    margin: auto;
+    border: none;
+    position: relative;
+    border-radius: 50px;
+    border-radius: 100px;
+}
+
+.button-font-face-menu {
+    width: 200px;
+}
+
+.button-font-face-option {
+    font-size: 17px;
+    font-family: var(--font-face);
+}
+
+/* Button icons */
+.button-color-foreground {
+    background-size: 26px;
+    background-image: url('../assets/format_color_text.svg');
+}
+
+.button-color-background {
+    background-size: 25px;
+    background-image: url('../assets/format_color_fill.svg');
+}
+
+.button-format-bold {
+    background-size: 35px;
+    background-image: url('../assets/format_bold.svg');
+}
+
+.button-format-italic {
+    background-size: 28px;
+    background-position-y: 9px;
+    background-image: url('../assets/format_italic.svg');
+}
+
+.button-format-underline {
+    background-size: 30px;
+    background-image: url('../assets/format_underlined.svg');
+}
+
+.button-format-strike-through {
+    background-size: 30px;
+    background-image: url('../assets/format_strikethrough_s.svg');
+}
+
+.button-align-left {
+    background-size: 30px;
+    background-image: url('../assets/format_align_left.svg');
+}
+
+.button-align-center {
+    background-size: 30px;
+    background-image: url('../assets/format_align_center.svg');
+}
+
+.button-align-right {
+    background-size: 30px;
+    background-image: url('../assets/format_align_right.svg');
+}
+
+.button-align-justify {
+    background-size: 30px;
+    background-image: url('../assets/format_align_justify.svg');
+}
+
+.button-file-save {
+    background-size: 30px;
+    background-image: url('../assets/file_save.svg');
+}
+
+.button-add {
+    background-size: 20px;
+    background-image: url('../assets/cell_add.svg');
+}
+
+/* Number Input */
+.sheet-add-rows > input[type='number'],
+.sheet-add-columns > input[type='number'] {
+    margin: 0 5px;
+    border-radius: 5px;
+    border: solid thin var(--button-border-color);
+}

@@ -26,7 +26,7 @@ const HOST = process.env.host || process.env.HOST || '127.0.0.1';
 
 app.use(express.json());
 
-let routes = ['assets', 'styles', 'scripts', 'fonts', 'utils'];
+let routes = ['assets', 'components', 'styles', 'scripts', 'fonts', 'utils', 'types'];
 routes.forEach((route) => {
     app.use(`/${route}`, express.static(path.join(__dirname, 'src', route)));
 });
