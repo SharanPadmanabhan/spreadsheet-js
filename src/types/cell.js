@@ -68,12 +68,12 @@ export const Cell = class {
             if (accents.includes(accent)
                 && richTextStyle.startIndex <= style.startIndex
                 && richTextStyle.endIndex >= style.endIndex
-                && richTextStyle.accent.hasOwn(accent)) {
+                && richTextStyle.accent.hasOwnProperty(accent)) {
                 found = true;
                 return;
             }
         });
-        return false;
+        return found;
     }
 
     /**
@@ -93,6 +93,14 @@ export const Cell = class {
      */
     getAlignment() {
         return this.#styles['text-align'];
+    }
+
+    /**
+     * Returns the cell styles.
+     * @returns {Object} The cell styles.
+     */
+    getStyles() {
+        return this.#styles;
     }
 
     /**

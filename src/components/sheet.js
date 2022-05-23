@@ -80,6 +80,11 @@ const createSpreadSheetColumnHeaders = (columns) => {
     }
 };
 
+/**
+ * Creates the spreadsheet cells.
+ * @param {Number} rows The number of rows.
+ * @param {Number} columns The number of columns.
+ */
 const createSpreadSheetCells = (rows, columns) => {
     let spreadsheet = new Sheet(rows, columns);
     for (let row = 0; row < rows; row++) {
@@ -104,6 +109,40 @@ export const createSpreadSheet = (rows, columns) => {
     createSpreadSheetCells(rows, columns);
 };
 
+/**
+ * Saves The spreadsheet.
+ */
+export const saveSpreadSheet = () => {
+    let object = {
+        rows: sheet.rowCount,
+        columns: sheet.columnCount,
+        createdTimeStamp: sheet.createdTimeStamp,
+        id: sheet.id,
+        cells: [],
+    };
+
+    sheet['rows'].forEach((row) => {
+        row['cells'].forEach((cell) => {
+            if (cell.data !== '') {
+                object.cells.push({
+                    data: cell.data,
+                    row: cell.rowNumber,
+                    styles: cell.getStyles(),
+                    column: cell.columnNumber,
+                    cellId: cell.id,
+                    sheetId: sheet.id,
+                    lastEditedTimeStamp: cell.lastEditedTimeStamp,
+                });
+            }
+        });
+    });
+
+    console.log(object);
+};
+
+/**
+ * Renders the spreadsheet.
+ */
 export const render = () => {
     let sheetElement = document.querySelector('.sheet-contents');
 
