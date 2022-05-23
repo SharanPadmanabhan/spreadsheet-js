@@ -30,6 +30,14 @@ export const Cell = class {
     }
 
     /**
+     * Sets the rich-text style to the cell.
+     * @param {Array} The rich-text styles to be applied to the cell.
+     */
+    setRichTextStyles(styles) {
+        this.#styles['rich-text'] = styles;
+    }
+
+    /**
      * Adds the style to the cell.
      * @param {Object} styles The style to be applied to the cell.
      * @returns If the style is added.
@@ -48,12 +56,34 @@ export const Cell = class {
     }
 
     /**
+     * Checks if the cell contains the rich-text style.
+     * @param {Object} style The style that has to be checked.
+     * @returns {boolean} If the cell contains the rich-text style.
+     */
+    containsRichTextStyle(style) {
+        let found = false;
+        let accent = Object.keys(style.accent)[0];
+        let accents = ['font-weight', 'font-style', 'text-decoration'];
+        this.#styles['rich-text'].forEach(richTextStyle => {
+            if (accents.includes(accent)
+                && richTextStyle.startIndex <= style.startIndex
+                && richTextStyle.endIndex >= style.endIndex
+                && richTextStyle.accent.hasOwn(accent)) {
+                found = true;
+                return;
+            }
+        });
+        return false;
+    }
+
+    /**
      * Set the alignment of the cell.
      * @param {string} alignment The alignment of the cell.
      * @returns If the alignment is applied.
      */
     setAlignment(alignment) {
         this.#styles['text-align'] = alignment;
+        this.element.style['text-align'] = alignment;
         return true;
     }
 

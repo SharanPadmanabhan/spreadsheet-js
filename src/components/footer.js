@@ -14,7 +14,6 @@ const loadSpreadSheetInformation = () => {
     savedTimeContainer.innerText = new Date().toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' });
 };
 
-
 /**
  * Renders the footer element.
  */
