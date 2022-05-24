@@ -5,7 +5,7 @@
 - To begin with, clone the repository.
 ```bash
     git clone "https://github.com/SharanPadmanabhan/spreadsheet-js.git"
-    cd spreadsheet
+    cd spreadsheet-js
 ```
 
 - To run the project
