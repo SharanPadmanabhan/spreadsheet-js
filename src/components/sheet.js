@@ -152,17 +152,6 @@ export const render = () => {
     let sheetCellsElement = createElement('div', { class: 'sheet-cells' });
     let sheetAddElement = createElement('div', { class: 'sheet-add-rows-columns' });
 
-    sheetAddElement.innerHTML = `
-        <span class="sheet-add-rows">
-            Add <input class="sheet-number-of-rows" type="number" value="100" /> more rows
-            <button class="button button-add button-add-rows"></button>
-        </span>
-        <span class="sheet-add-columns">
-            Add <input class="sheet-number-of-columns" type="number" value="100" /> more columns.
-            <button class="button button-add button-add-columns"></button>
-        </span>
-    `;
-
     sheetElement.style = `--rows: ${rows}; --columns: ${columns};`;
     sheetElement.append(sheetSelectorElement, rowHeadersElement, columnHeadersElement, sheetCellsElement, sheetAddElement);
     createSpreadSheet(rows, columns);
